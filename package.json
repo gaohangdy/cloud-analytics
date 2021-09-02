@@ -6,9 +6,11 @@
   "dependencies": {
     "crossfilter2": "^1.4.6",
     "d3": "^5.9.1",
+    "d3-cloud": "^1.2.5",
     "dc": "^2.2.2",
     "glamor": "^2.20.40",
     "react": "^16.8.2",
+    "react-d3-cloud": "^0.11.0",
     "react-dom": "^16.8.2",
     "react-flexbox-grid": "^2.1.2",
     "react-scripts": "2.1.5",

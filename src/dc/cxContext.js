@@ -23,20 +23,20 @@ export class DataContext extends React.Component {
       return;
     }
     this.setState({ loading: true });
-    csv("./ndx.csv").then((data) => {
-      data.forEach(function (d) {
-        d.dd = dateFormatParser(d.date);
-        d.month = timeMonth(d.dd); // pre-calculate month for better performance
-        d.close = +d.close; // coerce to number
-        d.open = +d.open;
-      });
+    // csv("./ndx.csv").then((data) => {
+    //   data.forEach(function (d) {
+    //     d.dd = dateFormatParser(d.date);
+    //     d.month = timeMonth(d.dd); // pre-calculate month for better performance
+    //     d.close = +d.close; // coerce to number
+    //     d.open = +d.open;
+    //   });
 
-      this.ndx = crossfilter(data); //TODO possibly need to update this
-      this.setState({ loading: false, hasNDX: true });
-    });
+    //   this.ndx = crossfilter(data); //TODO possibly need to update this
+    //   this.setState({ loading: false, hasNDX: true });
+    // });
 
     json(
-      "./contents.json",
+      "./testdata.json",
       {
         // method: "GET",
         // body: JSON.stringify({
@@ -49,6 +49,8 @@ export class DataContext extends React.Component {
       }
     ).then((data) => {
       console.log(data);
+      this.ndx = crossfilter(data); //TODO possibly need to update this
+      this.setState({ loading: false, hasNDX: true });
     });
   }
 
